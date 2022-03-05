@@ -1,7 +1,8 @@
 package com.itacademy.java.oop.basics;
 
 public enum ContactType {
-    FULL_TIME("Full-time"), PART_TIME("Part-time");
+    FULL_TIME("Full-time"),
+    PART_TIME("Part-time");
 
 
     public final String contractType;
