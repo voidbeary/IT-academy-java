@@ -15,8 +15,7 @@ public class RoadBike implements Bicycle {
     }
 
     @Override
-    public int applyBrakes() {
+    public void applyBrakes() {
 
-        return 0;
     }
 }
