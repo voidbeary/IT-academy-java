@@ -53,5 +53,7 @@ public class BicycleApplication {
         }
         System.out.println("Current road bike gear after change is " + roadBike.gear);
 
+        Bike winner = Speedometer.chooseWinner(mountainBike, roadBike);
+        System.out.println("The winner is " + winner);
     }
 }
