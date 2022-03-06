@@ -7,7 +7,9 @@ public class Speedometer {
     }
 
     public static Bike chooseWinner(int mountainBikeSpeed, int roadBikeSpeed) {
-        if (mountainBikeSpeed > roadBikeSpeed) {
+        if (mountainBikeSpeed == roadBikeSpeed) {
+            return null;
+        } else if (mountainBikeSpeed > roadBikeSpeed) {
             return Bike.MOUNTAIN;
         }
         return Bike.ROAD;
