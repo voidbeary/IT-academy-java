@@ -9,7 +9,7 @@ import java.util.List;
 public class CustomerService {
 
     private CustomerRepository repository = new MemoryCustomerRepository();
-    private Validator validator = new Validator();
+//    private Validator validator = new Validator();
 
 
     public List<Customer> findAll() {
@@ -17,7 +17,12 @@ public class CustomerService {
     }
 
     public void insert(Customer customer) {
-        validator.validate(customer);
+        Validator<String> countryCodeValidator = new CountryCodeValidator();
+        Validator<Integer> customerAdultValidator = new CustomerAdultValidator();
+        Validator<Customer> mandatoryCustomerValidator = new MandatoryCustomerValuesValidator();
+        countryCodeValidator.validate(customer.getCountryCode());
+        customerAdultValidator.validate(customer.getAge());
+        mandatoryCustomerValidator.validate(customer);
 
         customer = formatCustomer(customer);
 
@@ -28,6 +33,7 @@ public class CustomerService {
         String firstName = capitalizeFirstLetter(customer.getFirstName());
         String lastName = capitalizeFirstLetter(customer.getLastName());
         String personalNumber = formatPersonalNumber(customer.getPersonalNumber());
+
 
         Customer.Builder customerBuilder = new Customer.Builder(
                 firstName,
